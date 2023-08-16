@@ -5,6 +5,7 @@ SVIT IT Logs Manager API Python Task by Babilia Oleksandr
 ## Technologies Used
 
 - Backend: Python with FastAPI for building the server-side logic.
+- ORM: SQLAlchemy
 - Database: SQLite for storing user and log information.
 - Authentication and Authorization: JSON Web Token (JWT) for secure user authentication and authorization.
 - Testing: PyTest for writing and running backend tests, ensuring code reliability.
