@@ -4,6 +4,7 @@ from modules.auth.utils import get_password_hash
 from .schemas import User, UserCreate
 from .models import User
 
+
 def get_user(db: Session, user_id: int):
     return db.query(User).filter(User.id == user_id).first()
 
@@ -18,13 +19,12 @@ def get_users(db: Session, skip: int = 0, limit: int = 100):
 
 def create_user(db: Session, user: UserCreate):
     db_user = User(
-        email=user.email, 
+        email=user.email,
         first_name=user.first_name,
         last_name=user.last_name,
-        hashed_password=get_password_hash(user.password)
+        hashed_password=get_password_hash(user.password),
     )
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
     return db_user
-

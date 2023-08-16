@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  api:
+    container_name: logs_api
+    build: .
+    restart: always
+    command: >
+      sh -c "uvicorn main:app --host 0.0.0.0"
+    ports:
+      - 8000:8000
+    volumes:
+     - .:/app
+     - uploads_volume:/app/uploads
+
+volumes:
+  uploads_volume:
